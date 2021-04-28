@@ -7,6 +7,7 @@
 :root{
     --first-color: #FA1406;
     --second-color: #D2C7BE;
+    --hover-color: rgb(226,36,26);
 }
 
 body{
@@ -30,21 +31,87 @@ body{
     background-image: radial-gradient(circle, rgb(43,44,46) 0%, rgb(25,25,25) 93%);
     box-shadow: 5px 5px 10px black;
     color: #fff;
+    overflow: hidden;
 }
 
 .info{
     position: absolute;
-    top: 6px;
-    right: 14px;
+    top: 0;
+    right: 0;
+    display: flex;
+   
+}
+
+.info .fa-question, 
+.info .fa-palette{
+    margin: 10px 5px;
     font-size: 24px;
-    padding: 20px;
+    padding: 10px;
     color: var(--second-color);
     cursor: pointer;
     transition: color .3s;
+    /* background-color: yellow; */
 }
 
-.info:hover{
+
+.info .fa-question:hover, 
+.info .fa-palette:hover{
     color: var(--first-color);
+}
+
+.colors{
+    position: absolute;
+    top: 15vh;
+    right: -50px;
+    /* background-color: yellow; */
+    transition: right .3s;
+}
+
+.show-colors{
+    right: 0;
+}
+
+.color{
+    height: 35px;
+    width: 35px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    /* background-color: green; */
+    transition: background-color, box-shadow .3s;
+}
+
+.one{
+    background-color: green;
+    
+}
+.one:hover{
+    background-color: rgb(3, 114, 3);
+    box-shadow: 0 0 10px green;
+}
+.two{
+    background-color: rgb(247, 75, 161);
+}
+
+.two:hover{
+    background-color: rgb(245, 63, 154) ;
+    box-shadow: 0 0 10px rgb(247, 75, 161);
+}
+
+.three{
+    background-color: rgb(241, 168, 31);
+}
+.three:hover{
+    background-color: rgb(240, 159, 10);
+    box-shadow: 0 0 10px rgb(241, 168, 31);
+}
+
+.four{
+    background-color: rgb(55, 146, 231);
+}
+.four:hover{
+    background-color: rgb(23, 132, 233);
+    box-shadow: 0 0 10px rgb(55, 146, 231);
 }
 
 h1{
@@ -140,8 +207,15 @@ button:hover, button:focus{
     margin-bottom: 10px;
     margin-left: 20px;
     font-size: 20px;
+   
 }
-
+.modal .fas,
+.modal span{
+    color: var(--first-color);
+}
+.modal span{
+    font-weight: bold;
+}
 .modal .close{
     display: block;
     margin: 10px auto 0;
@@ -151,7 +225,7 @@ button:hover, button:focus{
 }
 
 .modal .close:hover{
-    background-color: rgb(226,36,26);
+    background-color: var(--hover-color);
 }
 
 .modal-animation {

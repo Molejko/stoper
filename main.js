@@ -8,8 +8,16 @@ const modalShadow = document.querySelector('.modal-shadow')
 const stopwatch = document.querySelector('.stopwatch');
 const closeModalBtn = document.querySelector('.close');
 const timeList = document.querySelector('.time-list');
-const infoBtn = document.querySelector('.info');
+const infoBtn = document.querySelector('.info .fa-question');
+const colorBtn = document.querySelector('.info .fa-palette');
+const colorsPalette = document.querySelector('.colors');
 
+const colorOne = document.querySelector('.one');
+const colorTwo = document.querySelector('.two');
+const colorThree = document.querySelector('.three');
+const colorFour = document.querySelector('.four');
+
+let root = document.querySelector(':root');
 
 let countTime;
 let minutes = 0;
@@ -93,6 +101,9 @@ const showModal = () => {
     
 }
 
+const showColor = () =>{
+    colorsPalette.classList.toggle('show-colors')
+}
 
 
 startBtn.addEventListener('click', handleStart);
@@ -103,5 +114,25 @@ historyBtn.addEventListener('click', showHistory);
 infoBtn.addEventListener('click', showModal);
 closeModalBtn.addEventListener('click', showModal)
 window.addEventListener('click', e => { e.target === modalShadow ? showModal() : false })
+colorBtn.addEventListener('click', showColor);
 
+colorOne.addEventListener('click', ()=>{
+    root.style.setProperty('--first-color', 'green')
+    root.style.setProperty('--hover-color', 'rgb(3, 114, 3)')
+})
+
+colorTwo.addEventListener('click', ()=>{
+    root.style.setProperty('--first-color', 'rgb(247, 75, 161)')
+    root.style.setProperty('--hover-color', 'rgb(245, 63, 154)')
+})
+
+colorThree.addEventListener('click', ()=>{
+    root.style.setProperty('--first-color', 'rgb(241, 168, 31)')
+    root.style.setProperty('--hover-color', 'rgb(240, 159, 10)')
+})
+
+colorFour.addEventListener('click', ()=>{
+    root.style.setProperty('--first-color', 'rgb(55, 146, 231)')
+    root.style.setProperty('--hover-color', 'rgb(23, 132, 233)')
+})
 
